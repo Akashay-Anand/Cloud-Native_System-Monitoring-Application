@@ -5,15 +5,15 @@
 Tools: Linux, Docker , AWS account, kubectl, VS Code
 Language: Python-3(Flask, psutil)
 
-> Install & use Docker (manage containers)
-https://docs.docker.com/engine/install/ubuntu/
-https://hub.docker.com/
-https://labs.play-with-docker.com/
+> Install & use Docker (manage containers)    
+>> https://docs.docker.com/engine/install/ubuntu/     
+>> https://hub.docker.com/    
+>> https://labs.play-with-docker.com/    
 
 > AWS (Free Tier Account)
->> setup aws terminal CLI tool in linux
->> Create user and generate 'access key' so that we can intract with it locally
->> provide CLI permission with programmatic access.
+>> setup aws terminal CLI tool in linux.    
+>> Create user and generate 'access key' so that we can intract with it locally.       
+>> provide CLI permission with programmatic access.   
 
 // some commands
 aws configure 
