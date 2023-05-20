@@ -1,5 +1,5 @@
 import psutil
-from flask import Flask, render_template
+from flask import Flask, render_template  
 
 app = Flask(__name__) # [Note 1]
 
@@ -22,4 +22,3 @@ if __name__ == '__main__':
 #[Note 1]: __name__ is a built-in Python variable that represents the name of the current module or file
 # When a Python file is executed directly, __name__ is set to '__main__'. When the file is imported as a module, __name__ is set to the module's name.
 
-# 
