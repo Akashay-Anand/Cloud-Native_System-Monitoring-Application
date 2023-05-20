@@ -7,12 +7,12 @@ app = Flask(__name__) # [Note 1]
 def index():
     cpu_utlize = psutil.cpu_percent() # returns the current state of cpu 
     mem_utlize = psutil.virtual_memory().percent # returns the current state of virtual memory
-    Message = None
-    if cpu_percent > 90 or mem_percent > 90 :
-        Message = "Your system resultsare at risk ; please optemiz it before it crashes"
-    if cpu_percent > 75 or mem_percent > 75 :
-        Message = "High CPU or Memory utilization detected. please modify your settings"
-    return f"CPU Utilization: {cpu_percent} and Memory utilization: {mem_percent}"
+    message = None
+    if cpu_utlize > 90 or mem_utlize > 90 :
+        message = "Your system resultsare at risk ; please optemiz it before it crashes"
+    if cpu_utlize > 75 or mem_utlize > 75 :
+        message = "High CPU or Memory utilization detected. please modify your settings"
+    return f"CPU Utilization: {cpu_utlize} and Memory utilization: {mem_utlize}"
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
