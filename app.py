@@ -1,5 +1,5 @@
 import psutil
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__) # [Note 1]
 
@@ -12,7 +12,7 @@ def index():
         message = "Your system resultsare at risk ; please optemiz it before it crashes"
     if cpu_utlize > 75 or mem_utlize > 75 :
         message = "High CPU or Memory utilization detected. please modify your settings"
-    return f"CPU Utilization: {cpu_utlize} and Memory utilization: {mem_utlize}"
+    return render_template("index.html", cpu_data=cpu_utlize, mem_data=mem_utlize, message=message)
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
