@@ -47,12 +47,51 @@ setup itt as well as we have did for aws or docker or git
 >> https://geekflare.com/dockerfile-tutorial/    
 
 > some commands for docker
-build imag // docker build -t my-flask-app . 
-show images // docker images
-create cont.(run)   // docker run -p 5000:5000 <image id>
-login // docker exec -it <container_name_or_id> bash
-stop  // docker stop my-container
-start // docker start my-container
-remove stopped containers // docker rm my-container
+build imag // docker build -t my-flask-app .    
+show images // docker images    
+create cont.(run)   // docker run -p 5000:5000 <image id>    
+login // docker exec -it <container_name_or_id> bash    
+stop  // docker stop my-container     
+start // docker start my-container     
+remove stopped containers // docker rm my-container   
 
 
+4> Create ECR repo using Boto3 API and deploy the image
+(creaet ECR repo, upload docker image in ecr repo, create EKS cluster )
+
+> create python file (ecrfile.py)
+>> write python code using Boto3 API and deploy the image on aws ecr.
+``` python
+import boto3
+
+ecr_client = boto3.client('ecr')
+
+repository_name = "my-repo-app-aws"
+response = ecr_client.create_repository(repositoryName = repository_name)
+
+```
+>> Now run the following commands to 
+
+>>> Retrieve an authentication token and authenticate your Docker client to your registry.
+Use the AWS CLI:
+```
+aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 404426248672.dkr.ecr.us-east-1.amazonaws.com
+```
+ Note: If you receive an error using the AWS CLI, make sure that you have the latest version of the AWS CLI and Docker installed.
+
+>>>Build your Docker image using the following command. For information on building a Docker file from scratch see the instructions here . You can skip this step if your image is already built:
+```
+docker build -t my-repo-app-aws .
+```
+>>>After the build completes, tag your image so you can push the image to this repository:
+```
+docker tag my-repo-app-aws:latest 404426248672.dkr.ecr.us-east-1.amazonaws.com/my-repo-app-aws:latest
+```
+Run the following command to push this image to your newly created AWS repository:
+```
+docker push 404426248672.dkr.ecr.us-east-1.amazonaws.com/my-repo-app-aws:latest
+```
+
+5> Create EKS(Elastic Kubernetes Service) cluster
+
+AWS services> EKS> Add Cluster> Create 
