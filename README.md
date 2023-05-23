@@ -95,3 +95,51 @@ docker push 404426248672.dkr.ecr.us-east-1.amazonaws.com/my-repo-app-aws:latest
 5> Create EKS(Elastic Kubernetes Service) cluster
 
 AWS services> EKS> Add Cluster> Create 
+
+6> kubernetes deployment and services
+> kubernetes uses deployment to maintain the state
+// resources   
+https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
+
+> our application runs on pods and we uses Service method for exposing a network application that is running as one or more Pods in your cluster.
+
+// terminal commands for Kubectl
+
+// check of deployments
+```kubectl
+kubectl get deployment -n default 
+```
+// update deployments (first image url in eksfile.py then change from console); 
+```kubectl
+kubectl edit deployment <dep. name> -n default 
+# this command will open editable file in 'vim terminal' change containers>image link
+# to save and exit => 'esc + :wq'
+```
+// check of pods
+```kubectl
+kubectl get pods -n default -w
+```
+// all the details regarding pods
+```kubectl
+kubectl describe pods <pod name> -n default
+```
+// check of services
+```kubectl
+kubectl get svc -n default 
+```
+
+// port-forward ; run pods in localhost
+```kubectl
+kubectl port-forward svc/my-flask-service 5000:5000
+```
+
+> End now our app has been hosted on kubernetes cluster <
+
+# some golden words # by Akashay Anand
+
+AWS is risky and every thing is not not free in Free tier 
+>🤖😥I got bill of 4.77$ bill while working on this project
+> So don't leave any EKS/ECR/ECS service active for 2-3 days just for project 💔
+
+
+
