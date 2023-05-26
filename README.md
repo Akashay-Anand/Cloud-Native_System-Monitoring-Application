@@ -5,6 +5,26 @@
 Tools: Linux, Docker , AWS account, kubectl, VS Code
 Language: Python-3(Flask, psutil)
 
+> Important Note if you want to start this project 
+> ```
+> AWS is risky and every thing is not not free in Free tier 
+>🤖😥I got bill of (4.70$ + 0.85$(TAX) = 5.55$ )  bill while working on this project
+> So don't leave any EKS/ECR/ECS service active for 2-3 days just for project 💔
+<img width="704" alt="image" src="https://github.com/Akashay-Anand/Cloud-Native_Monitoring-Application/assets/82114930/95d46cf5-2dc1-49c8-8769-874dcd242c63">   
+
+> ```
+> 
+> some links which may help ---
+>
+> CloudTrail: https://aws.amazon.com/cloudtrail/getting-started/
+> CloudWatch: http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html
+> Budgets: https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/budgets-managing-costs.html
+> 
+> ```
+
+
+# // Lets Start \\\  👨‍💻🥷
+
 ## Docker
 > Install & use Docker (manage containers)    
 >> https://docs.docker.com/engine/install/ubuntu/     
@@ -135,11 +155,4 @@ kubectl port-forward svc/my-flask-service 5000:5000
 
 > End now our app has been hosted on kubernetes cluster <
 
-# some golden words # by Akashay Anand
-
-AWS is risky and every thing is not not free in Free tier 
->🤖😥I got bill of 4.77$ bill while working on this project
-> So don't leave any EKS/ECR/ECS service active for 2-3 days just for project 💔
-
-
-
+# Have Great Time. 🤖😶‍🌫️🌦️🌦️
